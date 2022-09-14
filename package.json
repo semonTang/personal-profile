@@ -2,9 +2,10 @@
   "name": "personal-profile",
   "version": "1.0.0",
   "description": "A personal profile with react",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": " webpack-dev-server --open --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -16,8 +17,27 @@
     "url": "https://github.com/semonTang/personal-profile/issues"
   },
   "homepage": "https://github.com/semonTang/personal-profile#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0"
+    "@babel/core": "^7.19.0",
+    "@babel/preset-env": "^7.19.0",
+    "@babel/preset-react": "^7.18.6",
+    "@types/react": "^18.0.19",
+    "@types/react-dom": "^18.0.6",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.8.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.0"
   },
   "config": {
     "commitizen": {
