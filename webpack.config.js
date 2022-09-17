@@ -13,7 +13,7 @@ module.exports = {
   },
   devServer: {
     hot: true,
-    port: "3000",
+    port: "4000",
     // static: {
     //   directory: path.join(__dirname, "public/")
     // }
@@ -32,11 +32,15 @@ module.exports = {
     modules: ["node_modules"],
     extensions: [".js", ".json", ".ts", ".tsx"],
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": "/src",
     },
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
       {
         test: /\.js|jsx$/,
         exclude: /node_modules/,
@@ -59,6 +63,16 @@ module.exports = {
           },
           "ts-loader",
         ],
+      },
+      // 处理图片文件
+      {
+        test: /\.(png|jpg)$/,
+        use: ["file-loader"],
+      },
+      // 处理 svg 文件
+      {
+        test: /\.svg$/,
+        loader: "@svgr/webpack",
       },
     ],
   },

@@ -15,6 +15,6 @@
     "skipLibCheck": true,
     "noEmit": false
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "./src/images.d.ts"],
   "exclude": ["node_modules", "dist"]
 }
