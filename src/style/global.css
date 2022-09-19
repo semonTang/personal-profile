@@ -9,3 +9,28 @@ body {
 div, span, h1, h2 {
   color: white;
 }
+.text {
+  background: transparent;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  color: #fff;
+  padding: 18px 26px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease-in-out;
+  outline: none;
+  font-family: auto;
+}
+input::placeholder, textarea::placeholder {
+  color: white;
+}
+input:focus, textarea:focus {
+  background-color: white;
+  color: black;
+}
+input:focus::placeholder, textarea:focus::placeholder {
+  color: black;
+}
