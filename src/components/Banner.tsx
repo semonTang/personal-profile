@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import { Link } from "react-scroll";
+import styled from "styled-components";
+import { motion } from "framer-motion";
 import BannerImage from "../assets/img/banner.png";
 import HeroSvg from "../assets/svg/hero.svg";
 import ArrowRightSvg from "@/assets/svg/arrow-right-circle.svg";
@@ -74,6 +76,11 @@ const StyledArrowRightSvg = styled(ArrowRightSvg)`
 
 const RightWrapper = styled.div`
   flex: 1;
+`;
+
+const HeroSvgWrapper = styled(motion.div)`
+  width: 100%;
+  margin: 0 auto;
 `
 
 const StyledHeroSvg = styled(HeroSvg)`
@@ -115,7 +122,7 @@ const Banner = () => {
   }, [text])
 
   return (
-    <Container>
+    <Container id="home">
       <Wrapper>
         <LeftWrapper>
           <WelcomeContent>Welcome to my profile</WelcomeContent>
@@ -128,15 +135,23 @@ const Banner = () => {
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book.
           </Text>
-          <ConnectContainer>
-            Let's Connect <StyledArrowRightSvg />
-          </ConnectContainer>
+          <Link to="connect" smooth>
+            <ConnectContainer>
+              Let's Connect <StyledArrowRightSvg />
+            </ConnectContainer>
+          </Link>
         </LeftWrapper>
         <RightWrapper>
-          <StyledHeroSvg
-            viewBox="0 0 682 614"
-            preserveAspectRatio="none meet"
-          />
+          <HeroSvgWrapper
+            initial={{ width: "0" }}
+            whileInView={{ width: "100%" }}
+            transition={{ type: "spring", duration: 2 }}
+          >
+            <StyledHeroSvg
+              viewBox="0 0 682 614"
+              preserveAspectRatio="none meet"
+            />
+          </HeroSvgWrapper>
         </RightWrapper>
       </Wrapper>
     </Container>

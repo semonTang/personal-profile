@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Controller, useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 import ConnectSvg from "@/assets/svg/connect.svg";
 import { validateEmail } from "../utils/validate";
 
@@ -14,15 +15,24 @@ const Container = styled.div`
   gap: 4rem;
 `;
 
+const LeftContainer = styled.div`
+  flex: 1;
+`;
+
+const LeftWrapper = styled(motion.div)`
+  width: 100%;
+`;
+
 const StyledConnectSvg = styled(ConnectSvg)`
-  width: 40%;
+  width: 100%;
   height: auto;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
-  gap: .5rem;
+  gap: .6rem;
+  flex: 1;
 `;
 
 const Title = styled.h2`
@@ -91,8 +101,19 @@ const Connect = () => {
   });
 
   return (
-    <Container>
-      <StyledConnectSvg viewBox="0 0 785 589" preserveAspectRatio="none meet" />
+    <Container id="connect">
+      <LeftContainer>
+        <LeftWrapper
+          initial={{ width: 0 }}
+          whileInView={{ width: "100%" }}
+          transition={{ type: "spring", duration: 2 }}
+        >
+          <StyledConnectSvg
+            viewBox="0 0 785 589"
+            preserveAspectRatio="none meet"
+          />
+        </LeftWrapper>
+      </LeftContainer>
       <Form>
         <Title>Get in Touch</Title>
         <Controller
@@ -114,7 +135,10 @@ const Connect = () => {
         <Controller
           control={control}
           name="email"
-          rules={{ required: true, validate: { validateEmail: (value) => validateEmail(value) }}}
+          rules={{
+            required: true,
+            validate: { validateEmail: (value) => validateEmail(value) },
+          }}
           render={({ field }) => (
             <Input className="text" placeholder="Email Address" {...field} />
           )}
@@ -132,7 +156,9 @@ const Connect = () => {
             />
           )}
         />
-        <SubmitButton type="button" onClick={onSubmit}>Send</SubmitButton>
+        <SubmitButton type="button" onClick={onSubmit}>
+          Send
+        </SubmitButton>
       </Form>
     </Container>
   );

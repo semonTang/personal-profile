@@ -6,13 +6,30 @@ SwiperCore.use([Navigation]);
 
 
 const Container = styled.div`
+  padding: 0 0 50px 0;
+  position: relative;
+  margin-top: 50px;
+`;
+
+const Wrapper = styled.div`
+  width: 60%;
   background-color: #151515;
   border-radius: 64px;
   text-align: center;
+  margin: 0 auto;
+  margin-top: -60px;
   padding: 60px 50px;
-  position: relative;
-  margin: -100px auto 0;
-  width: 80%;
+`;
+
+const Blur = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 25rem;
+  height: 8rem;
+  filter: blur(100px);
+  background: linear-gradient(135deg, #aa367c 50%, #4a2fbd 50%);
+  z-index: -1;
 `;
 
 const Title = styled.h2`
@@ -117,26 +134,29 @@ const Skills = () => {
   ];
   return (
     <Container>
-      <Title>Skills</Title>
-      <Text>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. <br /> Lorem Ipsum has been the industry's standard dummy
-        text.
-      </Text>
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        navigation
-        modules={[Navigation]}
-        className="mySwiper"
-      >
-        {skills.map((item, index) => (
-          <SwiperSlide key={index}>
-            <Progress score={item.score} />
-            <StyledName>{item.name}</StyledName>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <Blur />
+      <Wrapper id="skills">
+        <Title>Skills</Title>
+        <Text>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. <br /> Lorem Ipsum has been the industry's standard dummy
+          text.
+        </Text>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          navigation
+          modules={[Navigation]}
+          className="mySwiper"
+        >
+          {skills.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Progress score={item.score} />
+              <StyledName>{item.name}</StyledName>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Wrapper>
     </Container>
   );
 };

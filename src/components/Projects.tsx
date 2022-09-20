@@ -116,7 +116,7 @@ const Projects = () => {
   }
 
   return (
-    <Container>
+    <Container id="projects">
       <Title>Projects</Title>
       <Text>
         Lorem Ipsum is simply dummy text of the printing and typesetting

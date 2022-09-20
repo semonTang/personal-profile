@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { Link } from "react-scroll";
+import GithubSvg from "@/assets/svg/github-fill.svg";
 
 const Container = styled.div`
   position: fixed;
@@ -29,6 +31,12 @@ const NavbarItem = styled.li`
   list-style: none;
   cursor: pointer;
 `;
+
+const StyledGithubSvg = styled(GithubSvg)`
+  fill: white;
+  width: 40px;
+  height: auto;
+`
 
 const Button = styled.button`
   position: relative;
@@ -78,10 +86,29 @@ const Header = () => {
     <Container ref={ref}>
       <div>LOGO</div>
       <Navbar>
-        <NavbarItem>Home</NavbarItem>
-        <NavbarItem>Skills</NavbarItem>
-        <NavbarItem>Projects</NavbarItem>
-        <NavbarItem><Button>Let's Connect</Button></NavbarItem>
+        <NavbarItem>
+          <Link to="home" smooth>
+            Home
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link to="skills" smooth>
+            Skills
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link to="projects" smooth>
+            Projects
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <StyledGithubSvg />
+        </NavbarItem>
+        <NavbarItem>
+          <Link to="connect" smooth>
+            <Button>Let's Connect</Button>
+          </Link>
+        </NavbarItem>
       </Navbar>
     </Container>
   );
