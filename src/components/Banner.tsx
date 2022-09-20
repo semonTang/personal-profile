@@ -64,7 +64,6 @@ const ConnectContainer = styled.div`
   font-weight: 700;
   font-size: 20px;
   cursor: pointer;
-  gap: 2rem;
   width: fit-content;
   height: 120px;
 `
@@ -72,6 +71,8 @@ const ConnectContainer = styled.div`
 const StyledArrowRightSvg = styled(ArrowRightSvg)`
   fill: white;
   width: 26px;
+  height: fit-content;
+  margin-left: 8px;
 `
 
 const RightWrapper = styled.div`

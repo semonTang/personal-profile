@@ -21,6 +21,10 @@ const Container = styled.div`
   }
 `;
 
+const Text = styled.h1`
+  font-size: 60px;
+`
+
 const Navbar = styled.ul`
   display: flex;
   align-items: center;
@@ -36,7 +40,7 @@ const StyledGithubSvg = styled(GithubSvg)`
   fill: white;
   width: 40px;
   height: auto;
-`
+`;
 
 const Button = styled.button`
   position: relative;
@@ -84,7 +88,7 @@ const Header = () => {
 
   return (
     <Container ref={ref}>
-      <div>LOGO</div>
+      <Text>LOGO</Text>
       <Navbar>
         <NavbarItem>
           <Link to="home" smooth>

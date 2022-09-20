@@ -8,11 +8,10 @@ SwiperCore.use([Navigation]);
 const Container = styled.div`
   padding: 0 0 50px 0;
   position: relative;
-  margin-top: 50px;
 `;
 
 const Wrapper = styled.div`
-  width: 60%;
+  width: 70%;
   background-color: #151515;
   border-radius: 64px;
   text-align: center;

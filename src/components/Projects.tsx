@@ -7,7 +7,7 @@ import ProjectImg from "@/assets/img/project.png";
 const Container = styled.div`
   display: block;
   margin-top: 50px;
-  padding: 80px 8%;
+  padding: 80px 7.5rem;
   background-color: black;
   text-align: center;
 `;
