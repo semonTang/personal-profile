@@ -34,3 +34,12 @@ input:focus, textarea:focus {
 input:focus::placeholder, textarea:focus::placeholder {
   color: black;
 }
+
+.skill_swiper_next {
+  cursor: pointer;
+  background: white;
+  min-width: 43px;
+  min-height: 43px;
+  opacity: 1;
+  border-radius: 50%;
+}

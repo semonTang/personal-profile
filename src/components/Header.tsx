@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
+import CommonSvg from "./CommonSvg";
 import GithubSvg from "@/assets/svg/github-fill.svg";
 
 const Container = styled.div`
@@ -34,12 +35,6 @@ const Navbar = styled.ul`
 const NavbarItem = styled.li`
   list-style: none;
   cursor: pointer;
-`;
-
-const StyledGithubSvg = styled(GithubSvg)`
-  fill: white;
-  width: 40px;
-  height: auto;
 `;
 
 const Button = styled.button`
@@ -105,9 +100,9 @@ const Header = () => {
             Projects
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <StyledGithubSvg />
-        </NavbarItem>
+        <CommonSvg link="https://github.com/semonTang">
+          <GithubSvg className="common_svg" />
+        </CommonSvg>
         <NavbarItem>
           <Link to="connect" smooth>
             <Button>Let's Connect</Button>

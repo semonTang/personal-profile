@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
-SwiperCore.use([Navigation]);
+import SwiperCore, { FreeMode, Navigation } from "swiper";
+import LeftArrowIcon from "@/assets/svg/arrow-left.svg";
+import RightArrowIcon from "@/assets/svg/arrow-right.svg";
+SwiperCore.use([FreeMode]);
 
 
 const Container = styled.div`
@@ -89,7 +91,30 @@ const StyledScore = styled.div`
 const StyledName = styled.h5`
   font-size: 1.25rem;
   margin-top: 1rem;
-`
+`;
+
+const Control = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 99;
+  transform: translateY(-50%);
+`;
+
+const IconBackground = styled.div<{ disable?: boolean }>`
+  background: #685e5e;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  user-select: none;
+  cursor: pointer;
+`;
 
 const Progress = (props: {score: string}) => {
   return (
@@ -131,6 +156,8 @@ const Skills = () => {
       score: "95%",
     },
   ];
+  const prevRef = useRef<HTMLDivElement>(null);
+  const nextRef = useRef<HTMLDivElement>(null);
   return (
     <Container>
       <Blur />
@@ -144,10 +171,36 @@ const Skills = () => {
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
-          navigation
+          onInit={(swiper) => {
+            const navigation = swiper.params.navigation;
+            navigation && typeof navigation === "object"
+              ? (navigation.prevEl = prevRef.current)
+              : null;
+            navigation && typeof navigation === "object"
+              ? (navigation.nextEl = nextRef.current)
+              : null;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }}
+          navigation={
+            prevRef?.current && nextRef?.current
+              ? {
+                  nextEl: prevRef?.current,
+                  prevEl: nextRef?.current,
+                }
+              : false
+          }
           modules={[Navigation]}
           className="mySwiper"
         >
+          <Control>
+            <IconBackground ref={prevRef}>
+              <LeftArrowIcon />
+            </IconBackground>
+            <IconBackground ref={nextRef}>
+              <RightArrowIcon />
+            </IconBackground>
+          </Control>
           {skills.map((item, index) => (
             <SwiperSlide key={index}>
               <Progress score={item.score} />

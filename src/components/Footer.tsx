@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import CommonSvg from "./CommonSvg";
 import GithubSvg from "@/assets/svg/github-fill.svg";
 
 const Container = styled.div`
@@ -27,13 +28,6 @@ const RightWrapper = styled.div`
   
 `;
 
-const StyledGithubSvg = styled(GithubSvg)`
-  fill: white;
-  width: 40px;
-  height: auto;
-  cursor: pointer;
-`;
-
 const CopyrightText = styled.div`
   font-weight: 400;
   font-size: 14px;
@@ -47,7 +41,9 @@ const Footer = () => {
     <Container>
       <Title>LOGO</Title>
       <RightWrapper>
-        <StyledGithubSvg />
+        <CommonSvg link="https://github.com/semonTang">
+          <GithubSvg className="common_svg" />
+        </CommonSvg>
         <CopyrightText>Copyright 2022. All Rights Reserved</CopyrightText>
       </RightWrapper>
     </Container>
